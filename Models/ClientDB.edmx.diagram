@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8853ddef7d9441da985aa7e075b2bc2d" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Admin" Width="1.5" PointX="3.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Delivery" Width="1.5" PointX="4.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Doctor" Width="1.5" PointX="6.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Login" Width="1.5" PointX="0.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Patient" Width="1.5" PointX="11" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.RoleTable" Width="1.5" PointX="4.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Specialization" Width="1.5" PointX="7.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Supplier" Width="1.5" PointX="5" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Admin_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Delivery_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Doctor_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Doctor_Specialization" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Login_RoleTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Patient_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Supplier_Login" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Appointment" Width="1.5" PointX="7.75" PointY="5.5" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Slot" Width="1.5" PointX="11.625" PointY="6.125" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Appointment_Doctor" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Appointment_Patient" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Appointment_Slots" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Product" Width="1.5" PointX="0.75" PointY="9.875" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.QuantityTable" Width="1.5" PointX="7.375" PointY="9.875" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Order" Width="1.5" PointX="1" PointY="5.75" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Order_Admin" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Delivery_Order" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Order_Product" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Order_QuantityTable" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_Order_Supplier" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.Message" Width="1.5" PointX="10.625" PointY="9.25" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.ReplyMessage" Width="1.5" PointX="12.875" PointY="9.125" />
+        <AssociationConnector Association="ClinicalAutomationSystemModel.FK_ReplyMessage_ReplyMessage" />
+        <EntityTypeShape EntityType="ClinicalAutomationSystemModel.ChatMessage" Width="1.5" PointX="0.75" PointY="12.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
