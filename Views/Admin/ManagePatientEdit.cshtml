@@ -1,0 +1,58 @@
+﻿@model ClinicAutomationProject.Models.PatientModel
+@{
+    ViewBag.Title = "ManagePatientEdit";
+}
+
+<h2>ManagePatientEdit</h2>
+
+<div>
+    <h2> @Model.Id </h2>
+    @using (Html.BeginForm("ManagePatientEdit", "Admin", FormMethod.Post))
+    {
+        @Html.HiddenFor(a => a.Id)
+        <div class="form-group">
+            <label class="container">Name</label>
+            @Html.TextBoxFor(a => a.PatientName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.PatientName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">Age</label>
+            @Html.TextBoxFor(a => a.PatientAge, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.PatientAge, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            Male: @Html.RadioButtonFor(a => a.PatientGender, "Male")
+            Female: @Html.RadioButtonFor(a => a.PatientGender, "Female")
+            @Html.ValidationMessageFor(a => a.PatientGender, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">Email</label>
+            @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">Password</label>
+            @Html.TextBoxFor(a => a.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">ConfirmPassword</label>
+            @Html.TextBoxFor(a => a.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="button" value="Cancel" class="btn btn-danger" onclick="GoToHome()" />
+
+        </div>
+    }
+
+</div>
+
+
+<script>
+    function GoToHome() {
+        window.location.href = '@Url.Action("AdminLogin", "Admin")';
+    }
+</script>

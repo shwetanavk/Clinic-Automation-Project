@@ -1,0 +1,42 @@
+﻿@model ClinicAutomationProject.Models.PatientAppointmentModel
+@{
+    ViewBag.Title = "ScheduleAppointment";
+}
+<h2></h2>
+<div class="jumbotron">
+    <h1>Schedule Your Appointment!</h1>
+    @using (Html.BeginForm("ScheduleAppointment", "Patient", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label class="container"> Appointment Subject </label>
+            @Html.TextBoxFor(a => a.AppointmentSubject, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.AppointmentSubject, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container"> Appointment Description </label>
+            @Html.TextBoxFor(a => a.AppointmentDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.AppointmentDescription, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container"> Appointment Date </label>
+            @Html.TextBoxFor(a => a.AppointmentDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.AppointmentDate, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container"></label>
+            @Html.DropDownListFor(a => a.SlotID, Model.SlotTime, "Select Slot", new { @class = "form-control" })
+            <label class="container"></label>
+            @Html.ValidationMessageFor(a => a.SlotID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="container"></label>
+            @Html.DropDownListFor(a => a.DoctorId, Model.DoctorNames, "Select Doctor", new { @class = "form-control" })
+            <label class="container"></label>
+            @Html.ValidationMessageFor(a => a.DoctorId, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Schedule" class="btn btn-primary" />
+        </div>
+    }
+</div>

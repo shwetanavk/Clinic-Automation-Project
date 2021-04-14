@@ -1,0 +1,31 @@
+﻿@model ClinicAutomationProject.Models.MessageAdminSenderToSupplierModel
+@{
+    ViewBag.Title = "CreateMessage";
+}
+
+<div class="jumbotron">
+    <h2>Create Message</h2>
+    @using (Html.BeginForm("CreateMessage", "Admin", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label class="container"></label>
+            @Html.DropDownListFor(a => a.ReceiverSupplierMemberID, Model.SupplierNameList, "Send To: ", new { @class = "form-control" })
+            <label class="container"></label>
+            @Html.ValidationMessageFor(a => a.ReceiverSupplierMemberID, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">Message Subject</label>
+            @Html.TextBoxFor(a => a.MessageSubject, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.MessageSubject, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="container">Message Description </label>
+            @Html.TextBoxFor(a => a.MessageDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.MessageDescription, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Send Message" class="btn btn-primary" />
+        </div>
+    }
+</div>

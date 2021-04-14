@@ -1,0 +1,31 @@
+﻿@model ClinicAutomationProject.Models.MessageDoctorReplyToAMessage
+@{
+    ViewBag.Title = "ReplyMessage";
+}
+
+<div class="jumbotron">
+    <h2>Reply</h2>
+    <h2>
+        @Model.MessageSubject: @Model.MessageDescription
+    </h2>
+    @using (Html.BeginForm("ReplyToAMessage", "Doctor", FormMethod.Post))
+    {
+        @Html.HiddenFor(a => a.MessageID)
+        @Html.HiddenFor(a => a.ReceiverPatientMemberID)
+
+        <div class="form-group">
+            <label class="container">Message Subject</label>
+            @Html.TextBoxFor(a => a.ReplyMessageSubject, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.ReplyMessageSubject, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="container">Message Description </label>
+            @Html.TextBoxFor(a => a.ReplyMessageDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.ReplyMessageDescription, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Send Message" class="btn btn-primary" />
+        </div>
+    }
+</div>

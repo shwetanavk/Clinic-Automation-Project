@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ClinicAutomationProject.Models.MessageAdminSenderToSupplierModel>
+@{
+    ViewBag.Title = "ViewMessage";
+}
+
+
+
+<div class="jumbotron">
+    <h2>View Messages</h2>
+    <label></label>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Message Date</th>
+        </tr>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                {
+                    <tr>
+                        <td>@item.SenderName</td>
+                        <td>@item.ReceiverName</td>
+                        <td>@item.MessageSubject</td>
+                        <td>@item.MessageDescription</td>
+                        <td>@item.MessageDate.ToString("dd-MMM-yyyy,       hh:mm tt")</td>
+                    </tr>
+                }
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="8">No record found.</td>
+            </tr>
+        }
+    </table>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("SupplierLogin","Supplier")" class="btn btn-primary btn-lg">Go Back</a></p>
+            </div>
+        </div>
+    </div>
+</div>

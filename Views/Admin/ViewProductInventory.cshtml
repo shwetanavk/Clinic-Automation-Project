@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ClinicAutomationProject.Models.ProductInventoryModel>
+
+@{
+    ViewBag.Title = "ViewProductInventory";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-10">
+            <p>
+                <h2>Inventory</h2>
+            </p>
+        </div>
+        <div class="col-md-1">
+            <p><a href="@Url.Action("ViewOrders","Admin")" class="btn btn-primary btn-lg">View Orders</a></p>
+        </div>
+    </div>
+
+    <label></label>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Stock</th>
+            <th>Place Order</th>
+            @*<th>Order Status</th>*@
+        </tr>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                {
+                    @Html.HiddenFor(a => item.ProductID);
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>@item.ProductPrice</td>
+                        <td>@item.ProductStock</td>
+
+                        <td>
+                            <a href="@Url.Action("PlaceOrder", "Admin", new { productID = item.ProductID})" class="text-danger">Place Order</a>
+                        </td>
+                        @*//<td>@item.OrderStatus</td>*@
+                    </tr>
+
+                }
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5">No record found.</td>
+            </tr>
+        }
+    </table>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-4">
+                <p><a href="@Url.Action("AdminLogin","Admin")" class="btn btn-primary btn-lg">Go Back</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+

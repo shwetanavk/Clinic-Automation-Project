@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ClinicAutomationProject.Models.DoctorAppointmentModel>
+
+@{
+    ViewBag.Title = "ViewAllPatientHistory";
+}
+
+
+<div class="jumbotron">
+    <h2>View All Patient's History</h2>
+    <label></label>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Patient Name</th>
+            <th>Patient Age</th>
+            <th>Patient Gender</th>
+            <th>Doctor Name</th>
+            <th>Subject</th>
+            <th>Description</th>
+            <th>Appointment Date</th>
+        </tr>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                if (item.AppointmentStatus.Equals("Accepted"))
+                {
+                    <tr>
+                        <td>@item.PatientName</td>
+                        <td>@item.PatientAge</td>
+                        <td>@item.PatientGender</td>
+                        <td>@item.DoctorName</td>
+                        <td>@item.Subject</td>
+                        <td>@item.Description</td>
+                        <td>@item.Date.ToString("dd-MMM-yyyy")</td>
+                    </tr>
+                }
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="8">No record found.</td>
+            </tr>
+        }
+    </table> 
+    
+    <div class="row">
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("DoctorLogin","Doctor")" class="btn btn-primary btn-lg">Go Back</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+

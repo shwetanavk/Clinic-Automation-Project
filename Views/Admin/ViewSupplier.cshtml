@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ClinicAutomationProject.Models.SupplierModel>
+@{
+    ViewBag.Title = "ViewSupplier";
+}
+
+
+<div class="jumbotron">
+
+
+    <h2>View Suppliers</h2>
+    <label></label>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th colspan="2">Operation</th>
+        </tr>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                @Html.HiddenFor(a => item.Id);
+                <tr>
+                    <td>@item.SupplierName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>
+                        <a href="@Url.Action("EditSupplier", "Admin", new { supplierId = item.Id})" class="text-danger">Edit</a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DeleteSupplier", "Admin", new { supplierId = item.Id })" class="text-danger"
+                           onclick="return confirm('You want to delete?')">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">No record found.</td>
+            </tr>
+        }
+    </table>
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("AdminLogin", "Admin")" ; class="btn btn-primary btn-lg">Go Back</a></p>
+            </div>
+        </div>
+    </div>
+</div>

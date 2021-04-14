@@ -1,0 +1,47 @@
+﻿@model ClinicAutomationProject.Models.SupplierModel
+@{
+    ViewBag.Title = "ManageSupplierEdit";
+}
+
+
+<div>
+    @using (Html.BeginForm("ManageSupplierEdit", "Admin", FormMethod.Post))
+    {
+        @Html.HiddenFor(a => a.Id)
+
+        <div class="form-group">
+            <label class="container">Name</label>
+            @Html.TextBoxFor(a => a.SupplierName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.SupplierName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">Email</label>
+            @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">Password</label>
+            @Html.TextBoxFor(a => a.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">ConfirmPassword</label>
+            @Html.TextBoxFor(a => a.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="button" value="Cancel" class="btn btn-danger" onclick="GoToHome()" />
+
+        </div>
+    }
+
+</div>
+
+
+<script>
+    function GoToHome() {
+        window.location.href = '@Url.Action("AdminLogin", "Admin")';
+    }
+</script>
+

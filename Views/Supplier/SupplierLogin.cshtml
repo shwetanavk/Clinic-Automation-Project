@@ -1,0 +1,36 @@
+﻿@model ClinicAutomationProject.Models.SupplierModel
+@{
+    ViewBag.Title = "SupplierLogin";
+}
+
+<div class="jumbotron">
+    <h1>Welcome, @Model.SupplierName</h1>
+    <h4>Email: @Model.Email</h4>
+    <p class="lead"></p>
+    <div class="row">
+        <div class="col-md-2">
+            <p><a href="@Url.Action("CreateMessage","Supplier")" class="btn btn-primary btn-lg">Create Message</a></p>
+        </div>
+        <div class="col-md-2">
+            <p><a href="@Url.Action("ViewMessage","Supplier")" class="btn btn-primary btn-lg">View Message&raquo;</a></p>
+        </div>
+    </div>
+</div>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>View Order Requests</h2>
+            <p>
+                You can see order requests.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("ViewOrderRequests","Supplier")" class="btn btn-primary btn-lg">View Order Requests</a></p>
+            </div>
+        </div>
+    </div>
+</div>

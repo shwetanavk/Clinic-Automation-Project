@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ClinicAutomationProject.Models.DoctorModel>
+@{
+    ViewBag.Title = "ViewDoctor";
+}
+
+<div class="jumbotron">
+    <h2>Displaying Doctor Details</h2>
+    <label></label>
+
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Name</th>
+                <th>SpecialzationName</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th colspan="2">Operation</th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    @Html.HiddenFor(a => item.DoctorId);
+                    <tr>
+                        <td>@item.DoctorName</td>
+                        <td>@item.SpecialzationName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Password</td>
+
+                        <td>
+                            <a href="@Url.Action("EditDoctor", "Admin", new { docId = item.DoctorId})" class="text-danger">Edit</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("DeleteDoctor", "Admin", new { docId = item.DoctorId })" class="text-danger"
+                               onclick="return confirm('You want to delete?')">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">No record found.</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("AdminLogin", "Admin")" ; class="btn btn-primary btn-lg">Go Back</a></p>
+            </div>
+        </div>
+    </div>
+</div>

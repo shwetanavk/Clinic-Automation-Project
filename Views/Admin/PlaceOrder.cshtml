@@ -1,0 +1,36 @@
+﻿@model ClinicAutomationProject.Models.ProductInventoryModel
+@{
+    ViewBag.Title = "PlaceOrder";
+}
+
+
+<div class="jumbotron">
+
+    <h2>Place Order </h2><br />
+    <h4>@Model.ProductName (INR @Model.ProductPrice )</h4>
+    <h4>Current Stock: @Model.ProductStock</h4>
+    <h4>order Number: @Model.OrderNumber</h4>
+    @using (Html.BeginForm("PlaceOrder", "Admin", FormMethod.Post))
+    {
+
+        @Html.HiddenFor(a => a.ProductID)
+        @Html.HiddenFor(a => a.OrderNumber)
+        <div class="form-group">
+            <label class="container"></label>
+            @Html.DropDownListFor(a => a.OrderQuantityID, Model.OrderQuantityList, "Select Quantity", new { @class = "form-control" })
+            <label class="container"></label>
+            @Html.ValidationMessageFor(a => a.OrderQuantityID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="container"></label>
+            @Html.DropDownListFor(a => a.SupplierID, Model.SupplierList, "Select Supplier", new { @class = "form-control" })
+            <label class="container"></label>
+            @Html.ValidationMessageFor(a => a.SupplierID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    }
+</div>

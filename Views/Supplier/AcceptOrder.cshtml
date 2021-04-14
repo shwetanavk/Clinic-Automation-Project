@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "AcceptAppointment";
+}
+
+<div class="jumbotron">
+
+    <h2>You Accepted an Order! </h2>
+    <h4>The expected delivery date is @ViewBag.deliveryDate</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <h3> </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("ViewOrderRequests","Supplier")" class="btn btn-primary btn-lg">Go Back</a></p>
+            </div>
+        </div>
+    </div>
+</div>

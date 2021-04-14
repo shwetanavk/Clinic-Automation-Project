@@ -1,0 +1,239 @@
+﻿@model ClinicAutomationProject.Models.PatientModel
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+<h2>EditProfile</h2>
+
+<div>
+    @using (Html.BeginForm("EditProfile", "Patient", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label class="container">Name</label>
+            @Html.TextBoxFor(a => a.PatientName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.PatientName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="container">Age</label>
+            @Html.TextBoxFor(a => a.PatientAge, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.PatientAge, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            Male: @Html.RadioButtonFor(a => a.PatientGender, "Male")
+            Female: @Html.RadioButtonFor(a => a.PatientGender, "Female")
+            @Html.ValidationMessageFor(a => a.PatientGender, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="container">Email</label>
+            @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label class="container">Password</label>
+            @Html.TextBoxFor(a => a.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="container">Confirm Password</label>
+            @Html.TextBoxFor(a => a.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @*@if (Model.DoctorId > 0)
+                {
+                    <input type="button" value="Cancel" class="btn btn-danger" onclick="GoToHome()" />
+                }*@
+        </div>
+    }
+</div>
+
+MemberId,RoleId, Id
+
+
+
+@*<script>
+        function GoToHome() {
+            window.location.href = '@Url.Action("Index","Home")';
+        }
+    </script>*@
+
+
+
+
+
+
+
+
+
+
+@*@section Script{
+
+        <script>
+
+            $("#txtName").change(function () {
+                $.ajax({
+                    url: "@Url.Action("GetPatientDetailsFromDB", "Patient")",
+                    data: { id =  name},
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        loadData(data);
+                    },
+                    error: function () {
+                        alert("Failed! Please try again.");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+        <script>
+            $("#btnSave").click(function () {
+                var isValid = true;
+
+
+                var name = $("#txtName").val().trim();  //Name
+                if (name == "") {
+                    $("#spName").html("Please enter name");
+                    isValid = false;
+                }
+                else {
+                    $("#spName").html("");
+                }
+
+
+                if (!$('input[name=Gender]:checked').val()) { //Gender
+                    $("#spGender").html("please select gender");
+                    isValid = false;
+                }
+                else {
+                    $("#spGender").html("");
+                }
+
+                var age = $("#txtAge").val().trim(); //Age
+                if (age == "") {
+                    $("#spAge").html("Please enter age");
+                    isValid = false;
+                }
+                else {
+                    $("#spAge").html("");
+                }
+
+
+                var email = $("#txtEmail").val().trim(); //Email
+                if (email == "") {
+                    $("#spEmail").html("Please enter Email");
+                    isValid = false;
+                }
+                else {
+                    $("#spEmail").html("");
+                }
+
+
+                var password = $("#txtPassword").val().trim(); //password
+                if (password == "") {
+                    $("#spPassword").html("Please enter Password");
+                    isValid = false;
+                }
+                else {
+                    $("#spPassword").html("");
+                }
+
+                var confirmPassword = $("#txtConfirmPassword").val().trim(); //spConfirmPassword
+                if (confirmPassword == "") {
+                    $("#spConfirmPassword").html("Please enter Password");
+                    isValid = false;
+                }
+                else {
+                    $("#spConfirmPassword").html("");
+                }
+
+
+
+                if (isValid == true) {
+                    //Insert or update or select
+                }
+            });
+        </script>
+    }*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div>
+        <form>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" id="txtName" />
+                <span id="spName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                Male: <input type="radio" id="rdMale" value="Male" name="Gender" />
+                Female: <input type="radio" id="rdFemale" value="Female" name="Gender" />
+                <span id="spGender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="text" class="form-control" id="txtAge" />
+                <span id="spAge" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" id="txtEmail" />
+                <span id="spEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="text" class="form-control" id="txtPassword" />
+                <span id="spPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>ConfirmPassword</label>
+                <input type="text" class="form-control" id="txtConfirmPassword" />
+                <span id="spConfirmPassword" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="button" value="Save" class="btn btn-primary" id="btnSave" />
+            </div>
+        </form>
+
+
+    </div>*@

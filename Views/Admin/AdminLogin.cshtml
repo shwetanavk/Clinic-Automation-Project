@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "AdminLogin";
+}
+
+
+
+
+<div class="jumbotron">
+    <h1>Welcome Admin</h1>
+    <p class="lead"></p>
+
+    <div class="row">
+        <div class="col-md-2">
+            <p><a href="@Url.Action("CreateMessage","Admin")" class="btn btn-primary btn-lg">Create Message</a></p>
+        </div>
+        <div class="col-md-2">
+            <p><a href="@Url.Action("ViewMessage","Admin")" class="btn btn-primary btn-lg">View Message&raquo;</a></p>
+        </div>
+
+
+        @*<div class="form-group">
+            <select class="form-control" id="message">
+                <option value="Select">Message</option>
+                <option value="1">Create Message</option>
+                <option value="2">View Message</option>
+            </select>
+            <span id="spCity" class="text-danger"></span>
+        </div>*@
+
+
+        <div class="col-md-2">
+            <p><a href="@Url.Action("ViewProductInventory","Admin")" class="btn btn-primary btn-lg">View Inventory&raquo;</a></p>
+        </div>
+    </div>
+</div>
+<div>
+
+    <div class="jumbotron">
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Manage Doctor</h2>
+                <p>
+                    You can create, modify or delete doctor details.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>Manage Supplier</h2>
+                <p>
+                    You can create, modify or delete Supplier details.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>Manage Patient</h2>
+                <p> You can create, modify or delete Patient details.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <label class="container"></label>
+                <div class="col-md-2">
+                    <p><a href="@Url.Action("ManageDoctor","Admin")" class="btn btn-primary btn-lg">Create Doctor</a></p>
+                </div>
+                <div class="col-md-2">
+                    <p><a href="@Url.Action("ViewDoctor","Admin")"class="btn btn-primary btn-lg">View Doctor &raquo;</a></p>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+
+                <label class="container"></label>
+                <div class="col-md-2">
+                    <p><a href="@Url.Action("ManageSupplier","Admin")" class="btn btn-primary btn-lg">Create Supplier</a></p>
+                </div>
+                <div class="col-md-2">
+                    <p><a href="@Url.Action("ViewSupplier","Admin")" class="btn btn-primary btn-lg">View Supplier &raquo;</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="container"></label>
+                <div class="col-md-2">
+                    <p><a href="@Url.Action("ManagePatient","Admin")" class="btn btn-primary btn-lg">Create Patient</a></p>
+                </div>
+                <div class="col-md-2">
+                    <p><a href="@Url.Action("ViewPatient","Admin")" class="btn btn-primary btn-lg">View Patient&raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

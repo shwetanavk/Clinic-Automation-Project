@@ -1,0 +1,87 @@
+﻿@model ClinicAutomationProject.Models.PatientModel
+
+
+@{
+    ViewBag.Title = "PatientLogin";
+}
+
+<h2></h2>
+<div class="jumbotron">
+    <h1>Welcome, @Model.PatientName</h1>
+    <p>
+        <h4>Age:        @Model.PatientAge </h4>
+        <h4>Gender:     @Model.PatientGender</h4>
+        <h4>Email:      @Model.Email</h4>
+    </p>
+
+    <p>
+        <h2></h2>
+       
+    </p>
+    
+    <p class="lead"></p>
+    <div class="row">
+        <div class="col-md-2">
+            <p><a href="@Url.Action("CreateMessage","Patient")" class="btn btn-primary btn-lg">Create Message</a></p>
+        </div>
+        @*<div class="col-md-2">
+            <p><a href="@Url.Action("CreateNewChatMessage","Patient")" class="btn btn-primary btn-lg">Create New Chat Message</a></p>
+        </div>*@
+        <div class="col-md-2">
+            <p><a href="@Url.Action("ViewMessage","Patient")" class="btn btn-primary btn-lg">View Message&raquo;</a></p>
+        </div>
+        @*<div class="form-group">
+            <select class="form-control" id="message">
+                <option value="Select">Message</option>
+                <option value="1">Create Message</option>
+                <option value="2">View Message</option>
+            </select>
+            <span id="spCity" class="text-danger"></span>
+        </div>*@
+    </div>
+</div>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Edit Patient Profile</h2>
+            <p>
+                You can modify the Patient details.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Schedule an Appointment </h2>
+            <p>
+                You can Schedule an Appointment  with your Doctor.
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Check Appointment Status </h2>
+            <p>
+                You can check Schedule status if any with your Doctor.
+            </p>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("EditProfile","Patient")" class="btn btn-primary btn-lg">Edit</a></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("ScheduleAppointment","Patient")" class="btn btn-primary btn-lg">Schedule</a></p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("CheckAppointment","Patient")" class="btn btn-primary btn-lg">Check Status</a></p>
+            </div>
+        </div>
+    </div>
+</div>

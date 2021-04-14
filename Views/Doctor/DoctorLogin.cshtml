@@ -1,0 +1,61 @@
+﻿@model ClinicAutomationProject.Models.DoctorModel
+@{
+    ViewBag.Title = "DoctorLogin";
+}
+<label></label>
+<div class="jumbotron">
+    <h1>Welcome, @Model.DoctorName</h1>
+    <p>
+        <h4>Specialization: @Model.SpecialzationName</h4> <br />
+    </p>
+    <p class="lead"></p>
+    <div class="row">
+        <div class="col-md-2">
+            <p><a href="@Url.Action("CreateMessage","Doctor")" class="btn btn-primary btn-lg">Create Message</a></p>
+        </div>
+        <div class="col-md-2">
+            <p><a href="@Url.Action("ViewMessage","Doctor")" class="btn btn-primary btn-lg">View Message&raquo;</a></p>
+        </div>
+        @*<div class="col-md-2">
+            <p><a href="@Url.Action("ViewMessageNameList","Doctor")" class="btn btn-primary btn-lg">View Message Name List&raquo;</a></p>
+        </div>*@
+        @*<div class="form-group">
+                <select class="form-control" id="message">
+                    <option value="Select">Message</option>
+                    <option value="1">Create Message</option>
+                    <option value="2">View Message</option>
+                </select>
+                <span id="spCity" class="text-danger"></span>
+            </div>*@
+    </div>
+</div>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>View Appointments</h2>
+            <p>
+                You can see the Patient's Appointment details.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h2>View all Patient's History </h2>
+            <p>
+                You can see the history of all patients here.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("ViewAppointment","Doctor")" class="btn btn-primary btn-lg">View Appointment</a></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="container"></label>
+            <div class="col-md-2">
+                <p><a href="@Url.Action("ViewAllPatientHistory","Doctor")" class="btn btn-primary btn-lg">View History</a></p>
+            </div>
+        </div>
+    </div>
+</div>
